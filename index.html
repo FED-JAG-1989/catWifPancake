@@ -1,0 +1,318 @@
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png" href="">
+    <meta name="apple-mobile-web-app-title" content="Gabby Cat">
+    <link rel="shortcut icon" type="image/x-icon" href="">
+    <link rel="mask-icon" type="image/x-icon" href="" color="#111">
+    <script src="./jquery/jquery.js"></script>
+    <title>LETS MAKE CATS GREAT AGAIN</title>
+    <link rel="canonical" href="index.htm">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="app.css" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ANATOLY">
+    <meta property="og:description" content="">
+    <meta property="og:title" content="ANATOLY">
+    <meta name="image" property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <style>
+      body {
+        font-family: 'Space Mono', monospace;
+        background-color: #000;
+        margin: 0;
+      }
+
+      @keyframes rotate {
+        from {
+          rotate: 0
+        }
+
+        50% {
+          scale: 1 1.5
+        }
+
+        to {
+          rotate: 360deg
+        }
+      }
+
+      #blob {
+        background-color: #fff;
+        height: 34vmax;
+        aspect-ratio: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        background: linear-gradient(to right, #7fffd4, #9370db);
+        animation: rotate 20s infinite;
+        opacity: .8
+      }
+
+      #blob1 {
+        background-color: #fff;
+        height: 34vmax;
+        aspect-ratio: 1;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        background: linear-gradient(to right, #7fffd4, #9370db);
+        animation: rotate 20s infinite;
+        opacity: .8
+      }
+
+      #blur {
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        backdrop-filter: blur(10vmax)
+      }
+
+      #blur1 {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 2;
+        backdrop-filter: blur(10vmax)
+      }
+
+      h1,
+      h2 {
+        font-size: clamp(3rem, 4vw, 4rem);
+        color: #fff;
+        border-radius: clamp(.4rem, .75vw, 1rem);
+        margin: 0 auto;
+        z-index: 3
+      }
+
+      h2 {
+        color: #fff;
+        padding: 0 clamp(1rem, 2vw, 3rem);
+        border-radius: clamp(.4rem, .75vw, 1rem);
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        z-index: 3
+      }
+
+      p {
+        color: #fff;
+        font-size: 1.5rem
+      }
+
+      .button-buy {
+        width: 300px;
+        padding: 15px 20px;
+        background-color: transparent;
+        border: 3px solid #00d7c3;
+        -webkit-transition: all .15s ease-in-out;
+        transition: all .15s ease-in-out;
+        color: #00d7c3;
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin: 2rem 0
+      }
+
+      .button-buy:hover {
+        box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+        border: 3px solid #00d7c3
+      }
+
+      .bar-anchor {
+        width: 200px;
+        padding: 20px 10px;
+        margin: 10px 4px;
+        color: #fff;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        text-decoration: none;
+        display: inline-block;
+        overflow: hidden
+      }
+
+      .bar-anchor span {
+        background: #19193b;
+        width: 100%;
+        position: relative;
+        padding: 15px 70px;
+        -moz-transition: all .65s cubic-bezier(.77, 0, .175, 1);
+        -o-transition: all .65s cubic-bezier(.77, 0, .175, 1);
+        -webkit-transition: all .65s cubic-bezier(.77, 0, .175, 1);
+        transition: all .65s cubic-bezier(.77, 0, .175, 1)
+      }
+
+      .transition-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #fff;
+        z-index: -1
+      }
+
+      .bar-anchor:hover .transition-bar {
+        width: 110%;
+        left: 110%;
+        -moz-transition: all .65s cubic-bezier(.77, 0, .175, 1);
+        -o-transition: all .65s cubic-bezier(.77, 0, .175, 1);
+        -webkit-transition: all .65s cubic-bezier(.77, 0, .175, 1);
+        transition: all .65s cubic-bezier(.77, 0, .175, 1)
+      }
+
+      .padContent {
+        padding: 2% 10%
+      }
+
+      .belong {
+        font-size: clamp(3rem, 4vw, 4rem);
+        padding-top: 3rem
+      }
+
+      .text-15 {
+        font-size: 1.7rem
+      }
+
+      .text-1 {
+        font-size: 1.5rem
+      }
+
+      #wellcomeDiv {
+        align-items: center;
+        background: #000;
+        background-size: cover;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        text-align: center;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000
+      }
+
+      .ws {
+        white-space: nowrap
+      }
+
+      @media only screen and (max-width:480px) {
+        .button-buy {
+          width: 240px;
+          margin-bottom: 0px
+        }
+
+        .padContent {
+          padding: 2% 5%
+        }
+
+        .belong {
+          font-size: clamp(2rem, 3vw, 3rem);
+          padding-top: 3rem
+        }
+
+        .text-1 {
+          font-size: 1rem
+        }
+
+        .text-15 {
+          font-size: 1.5rem
+        }
+
+        .hidemb {
+          display: none !important
+        }
+
+        .wsn {
+          display: block
+        }
+
+        .bar-anchor {
+          margin: unset;
+        }
+      }
+    </style>
+    <script>
+      function enterFunc() {
+        document.getElementById("wellcomeDiv").style.display = "none", document.body.style.overflow = "unset", document.body.style.overflowX = "hidden", $("#myAudio")[0].play()
+      }
+    </script>
+  </head>
+  <body>
+
+
+    <div id="blob"></div>
+    <div id="blur">
+      <div id="mainDiv">
+        <div class="padContent">
+          <center>
+            <h1 data-value="HI, I'M catWifPancake">HI, I'M catWifPancake</h1>
+            <p class="text-15">The real Solana CAT</p>
+            <video width="500" height="300" autoplay loop id="myVideo" muted>
+              <source src="cat-video.mp4" type="video/mp4" >
+            </video>
+            </a>
+            <h1 class="belong">LETS MAKE CATS GREAT AGAIN</h1>
+            <p class="text-1">MINT REVOKED, LP BURNED FOREVER.<br>100% Added LP</p>
+            <a href="https://raydium.io" style="text-decoration:none" target="_blank">
+              <div class="button-buy">BUY ON RAYDIUM</div>
+            </a>
+            <br>
+            <p>CA: G8jGLYHJXsu3M4YbB7vBvik3m3JSXizbE68MkSUgB4dE</p>
+            <br>
+            <a href="https://dexscreener.com/solana/ako1jk57la1ajmfsdcbtyktm4rwp9isk5vlmnff7rrdw" style="text-decoration:none" target="_blank">
+            <img src="hzjWH6I.png" style="width: 300px;">
+            </a>
+            <br>
+            <br>
+            <a href="https://twitter.com/curryvenko" class="bar-anchor" target="_blank">
+              <span>TWITTER</span>
+              <div class="transition-bar"></div>
+            </a>
+            <a href="https://t.me/curryvenko" class="bar-anchor" target="_blank">
+              <span>TELEGRAM</span>
+              <div class="transition-bar"></div>
+            </a>
+            <p style="font-size:1rem">Copyright © 2024 catWifPancake. All Rights Reserved.</p>
+          </center>
+        </div>
+      </div>
+    </div>
+    <script id="rendered-js">
+      const blob = document.getElementById("blob");
+      window.onpointermove = t => {
+        const {
+          clientX: e,
+          clientY: l
+        } = t;
+        blob.animate({
+          left: `${e}px`,
+          top: `${l}px`
+        }, {
+          duration: 3e3,
+          fill: "forwards"
+        })
+      };
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let interval = null;
+      document.querySelector("h1").onmouseover = t => {
+        let e = 0;
+        clearInterval(interval), interval = setInterval((() => {
+          t.target.innerText = t.target.innerText.split("").map(((l, n) => n < e ? t.target.dataset.value[n] : letters[Math.floor(26 * Math.random())])).join(""), e >= t.target.dataset.value.length && clearInterval(interval), e += 1 / 3
+        }), 30)
+      };
+    </script>
+  </body>
+</html>
